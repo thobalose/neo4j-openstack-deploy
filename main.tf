@@ -53,9 +53,18 @@ resource "openstack_compute_floatingip_associate_v2" "neo4j" {
     private_key = "${file(var.ssh_key_file)}"
   }
 
+  provisioner "local-exec" {
+    command = "echo ${openstack_networking_floatingip_v2.neo4j.address} > instance_ip.txt"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get -y update",
+      "sudo mkfs.ext4 ${openstack_compute_volume_attach_v2.attached.device}",
+      "sudo mkdir /mnt/volume",
+      "sudo mount ${openstack_compute_volume_attach_v2.attached.device} /mnt/volume",
+      "sudo df -h /mnt/volume",
+      "sudo mkdir -p /mnt/volume/neo4j-data",
     ]
   }
 

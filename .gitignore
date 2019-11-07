@@ -11,3 +11,7 @@
 
 # .tfvars files
 *.tfvars
+.terraform
+
+# instance IP
+*.txt

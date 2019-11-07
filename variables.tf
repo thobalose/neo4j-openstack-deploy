@@ -1,5 +1,5 @@
 variable "image" {
-  default = "ubuntu-16.04_working"
+  default = "packer-ubuntu-16.04-hwe"
 }
 
 variable "flavor" {
@@ -7,7 +7,7 @@ variable "flavor" {
 }
 
 variable "ssh_key_file" {
-  default = "~/.ssh/vms"
+  default = "~/.ssh/id_rsa"
 }
 
 variable "ssh_user_name" {
@@ -16,4 +16,9 @@ variable "ssh_user_name" {
 
 variable "pool" {
   default = "public1"
+}
+
+variable "volume_size" {
+  type    = "number"
+  default = 1
 }

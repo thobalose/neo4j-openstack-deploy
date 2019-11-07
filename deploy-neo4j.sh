@@ -23,7 +23,7 @@ sudo apt-get -y update
 sudo apt-get install -y docker-ce
 
 # Download and install docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 # deploy neo4j using docker-compose
 sudo docker-compose up --build -d
